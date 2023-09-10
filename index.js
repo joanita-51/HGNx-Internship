@@ -9,10 +9,10 @@ app.post('/', (req, res)=>{
 })
 app.get('/api', (req, res)=>{
     //getting the query parameters from the request
-    const {slackName, utcOffset} = req.query;
+    const {slackName, track} = req.query;
 
     //validate query parameters
-    if(!slackName || !utcOffset){
+    if(!slackName || !track){
         return res.status(400).json({error: "Both slackName and utcOffset are required query parameters."});
     }
 
@@ -21,16 +21,21 @@ app.get('/api', (req, res)=>{
     const currentDayOfWeek = daysOfWeek[new Date().getDay()];
 
     //calculate the current utc time with validation of +/-2
-    const currentUtcTime = new Date().toUTCString();
-    const utcOffsetInt = parseInt(utcOffset, 10);
+    const now = new Date();
+    // const utcOffset = now.getTimezoneOffset() / 60; //calculate the utc offset in hours
 
-    if(isNaN(utcOffsetInt) || Math.abs(utcOffsetInt) > 2){
-        return res.status(400).json({error: "Invalid utcOffset value. It should be between -2 and +2"});
-    }
+    // //validating the offset
+    // if(utcOffset < -2 || utcOffset > 2){
+    //     return res.status(400).json({error : 'Invalid UTC offset'});
+    // }
+
+    const currentUtcTime = now.toUTCString();
+
+
 
     //Construct  github urls
-    const githubBaseUrl = 'https:github.com/joanita-51/zuri';
-    const currentFileUrl=  `${githubBaseUrl}/blob/main/index.js`;
+    const githubBaseUrl = 'https://github.com/joanita-51/HGNx-Internship';
+    const currentFileUrl=  `${githubBaseUrl}/blob/master/index.js`;
     const fullSourceCodeUrl = `${githubBaseUrl}`;
 
     //Prepare the response JSON
@@ -38,10 +43,10 @@ app.get('/api', (req, res)=>{
         slackName,
         currentDayOfWeek,
         currentUtcTime,
-        track:"Backend",
+        track,
         currentFileUrl,
         fullSourceCodeUrl,
-        statusCode:'Success',
+        statusCode: 200,
     }
 
     //send the json response
