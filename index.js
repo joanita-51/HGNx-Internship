@@ -40,7 +40,7 @@ app.get('/api', (req, res)=>{
 
     //Prepare the response JSON
     const response = {
-        slackName,
+        slack_name,
         currentDayOfWeek,
         currentUtcTime,
         track,
