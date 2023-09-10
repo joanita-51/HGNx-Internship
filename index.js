@@ -18,7 +18,7 @@ app.get('/api', (req, res)=>{
 
     //calculate the current day of the week
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const currentDayOfWeek = daysOfWeek[new Date().getDay()];
+    const current_day = daysOfWeek[new Date().getDay()];
 
     //calculate the current utc time with validation of +/-2
     const now = new Date();
@@ -29,24 +29,24 @@ app.get('/api', (req, res)=>{
     //     return res.status(400).json({error : 'Invalid UTC offset'});
     // }
 
-    const currentUtcTime = now.toUTCString();
+    const utc_time = now.toUTCString();
 
 
 
     //Construct  github urls
     const githubBaseUrl = 'https://github.com/joanita-51/HGNx-Internship';
-    const currentFileUrl=  `${githubBaseUrl}/blob/master/index.js`;
-    const fullSourceCodeUrl = `${githubBaseUrl}`;
+    const github_file_url=  `${githubBaseUrl}/blob/master/index.js`;
+    const github_repo_url = `${githubBaseUrl}`;
 
     //Prepare the response JSON
     const response = {
         slack_name,
-        currentDayOfWeek,
-        currentUtcTime,
+        current_day,
+        utc_time,
         track,
-        currentFileUrl,
-        fullSourceCodeUrl,
-        statusCode: 200,
+        github_file_url,
+        github_repo_url,
+        status_code: 200,
     }
 
     //send the json response
