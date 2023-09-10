@@ -9,11 +9,11 @@ app.post('/', (req, res)=>{
 })
 app.get('/api', (req, res)=>{
     //getting the query parameters from the request
-    const {slackName, track} = req.query;
+    const {slack_name, track} = req.query;
 
     //validate query parameters
-    if(!slackName || !track){
-        return res.status(400).json({error: "Both slackName and utcOffset are required query parameters."});
+    if(!slack_name || !track){
+        return res.status(400).json({error: "Both slackName and track are required query parameters."});
     }
 
     //calculate the current day of the week
