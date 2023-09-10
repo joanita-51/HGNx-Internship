@@ -29,9 +29,7 @@ app.get('/api', (req, res)=>{
     //     return res.status(400).json({error : 'Invalid UTC offset'});
     // }
 
-    const time = now.toUTCString();
-    const inputDate = new Date(time);
-    const utc_time = inputDate.toISOString();
+    const utc_time = now.toISOString().slice(0, -5) + 'Z';
 
 
 
