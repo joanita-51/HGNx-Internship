@@ -1,7 +1,6 @@
 require('dotenv').config();
 const routes = require('./routes/routes')
 const mongoString = process.env.DATABASE_URL
-const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
 const port = 3005
@@ -13,7 +12,6 @@ app.use(express.json())
 //connect to your mongoDB database
 mongoose.connect(mongoString)
 const database = mongoose.connection
-// app.use(bodyParser.json())
 
 database.on('error', (error)=>{
   console.log(error)
@@ -33,7 +31,7 @@ app.get('/api2', (req, res)=>{
 
     //validate query parameters
     if(!slack_name || !track){
-        return res.status(400).json({error: "Both slackName and track are required query parameters."});
+      return res.status(400).json({error: "Both slackName and track are required query parameters."});
     }
 
     //calculate the current day of the week
@@ -42,16 +40,7 @@ app.get('/api2', (req, res)=>{
 
     //calculate the current utc time with validation of +/-2
     const now = new Date();
-    // const utcOffset = now.getTimezoneOffset() / 60; //calculate the utc offset in hours
-
-    // //validating the offset
-    // if(utcOffset < -2 || utcOffset > 2){
-    //     return res.status(400).json({error : 'Invalid UTC offset'});
-    // }
-
     const utc_time = now.toISOString().slice(0, -5) + 'Z';
-
-
 
     //Construct  github urls
     const githubBaseUrl = 'https://github.com/joanita-51/HGNx-Internship';
