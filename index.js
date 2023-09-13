@@ -1,13 +1,33 @@
+require('dotenv').config();
+const routes = require('./routes/routes')
+const mongoString = process.env.DATABASE_URL
+const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
 const port = 3005
 
+const mongoose = require('mongoose');
+
 app.use(express.json())
 
-app.post('/', (req, res)=>{
-    console.log(req.body.name)
+//connect to your mongoDB database
+mongoose.connect(mongoString)
+const database = mongoose.connection
+// app.use(bodyParser.json())
+
+database.on('error', (error)=>{
+  console.log(error)
 })
-app.get('/api', (req, res)=>{
+
+database.once('connected', ()=>{
+  console.log('Database Connected')
+})
+
+app.use('/api', routes)
+
+  
+
+app.get('/api2', (req, res)=>{
     //getting the query parameters from the request
     const {slack_name, track} = req.query;
 

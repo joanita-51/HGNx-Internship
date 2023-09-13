@@ -1,0 +1,28 @@
+Get http://localhost:3005/api/getAll
+
+###
+
+Get http://localhost:3005/api/getOne/65020db03a4534447e270166
+
+###
+
+Post http://localhost:3005/api/post
+Content-Type: application/json
+
+{
+    "name":"John Doe",
+    "age":35
+}
+
+####
+
+PATCH http://localhost:3005/api/update/65020db03a4534447e270166
+Content-Type: application/json
+
+{
+    "name":"James Doe"
+
+}
+
+###
+DELETE  http://localhost:3005/api/delete/65020db03a4534447e270166
