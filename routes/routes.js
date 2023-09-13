@@ -3,7 +3,7 @@ const router = express.Router()
 const Model = require('../model/model.js')
 
 // Posting data to the database
-router.post('/post', async(req, res)=>{
+router.post('/', async(req, res)=>{
     const data = new Model ({
         name: req.body.name,
         age: req.body.age
@@ -28,7 +28,7 @@ router.get('/getAll', async(req, res)=>{
 })
 
 //Getting data based on the id
-router.get('/getOne/:id', async(req, res)=>{
+router.get('/:id', async(req, res)=>{
     try {
         const data = await Model.findById(req.params.id)
         res.json(data)
@@ -39,7 +39,7 @@ router.get('/getOne/:id', async(req, res)=>{
 })
 
 //Updating data based on the id
-router.patch('/update/:id', async(req, res)=>{
+router.patch('/:id', async(req, res)=>{
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -52,7 +52,7 @@ router.patch('/update/:id', async(req, res)=>{
 })
 
 //Deleting data based on the id
-router.delete('/delete/:id', async(req, res)=>{
+router.delete('/:id', async(req, res)=>{
     try {
        const id = req.params.id;
        const data = await Model.findByIdAndDelete(id) 

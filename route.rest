@@ -1,22 +1,22 @@
 Get http://localhost:3005/api/getAll
 
-###
+### fetching details of the person
 
-Get http://localhost:3005/api/getOne/65020db03a4534447e270166
+Get http://localhost:3005/api/6502136a39c46e08198f27bc
 
-###
+### add a new person
 
-Post http://localhost:3005/api/post
+Post http://localhost:3005/api/
 Content-Type: application/json
 
 {
-    "name":"John Doe",
+    "name":"Mark Essien",
     "age":35
 }
 
-####
+#### modify details of an existing person
 
-PATCH http://localhost:3005/api/update/65020db03a4534447e270166
+PATCH http://localhost:3005/api/6502136a39c46e08198f27bc
 Content-Type: application/json
 
 {
@@ -24,5 +24,5 @@ Content-Type: application/json
 
 }
 
-###
-DELETE  http://localhost:3005/api/delete/65020db03a4534447e270166
+### remove the person
+DELETE  http://localhost:3005/api/6502136a39c46e08198f27bc
