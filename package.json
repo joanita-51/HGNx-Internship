@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "engines": {
+    "node": ">=16.20.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joanita-51/HGNx-Internship.git"
