@@ -30,51 +30,74 @@ Before you begin, ensure you have met the following requirements:
 
     cd <project-directory>
 2. Install project dependencies:
+
+   ```bash
     npm install
 
 ## Configuration
 
 1. Create a .env file in the project root and define the following environment variables:
-
+ 
+   ```env
     DATABASE_URL=<your-mongodb-uri>
-    Replace <your-mongodb-uri> with your MongoDB Atlas connection URI.
+   
+<!-- Replace <your-mongodb-uri> with your MongoDB Atlas connection URI. -->
 
 ## Running the API
-    To start the API, run the following command:
+To start the API, run the following command:
 
     npm start
-    The API will be available at http://localhost:3005 by default. You can modify the port in the index.js file if needed.
+
+The API will be available at http://localhost:3005 by default. You can modify the port in the index.js file if needed.
 
 ## API Endpoints
-The API provides the following endpoints:
 
-POST /api: Create a new data entry.
-GET /api/getAll: Retrieve all data entries.
-GET /api/:id: Retrieve data by ID.
-PATCH /api/:id: Update data by ID.
-DELETE /api/:id: Delete data by ID.
+   The API provides the following endpoints:
+
+   1. POST /api: Create a new data entry.
+   2. GET /api/getAll: Retrieve all data entries.
+   3. GET /api/:id: Retrieve data by ID.
+   4. PATCH /api/:id: Update data by ID.
+   5. DELETE /api/:id: Delete data by ID.
+
 ## Usage Examples
-Here are some examples of how to use the API endpoints:
+   Here are some examples of how to use the API endpoints:
 
-Inside your post man or rest file created in vs code, you can create the following data "Content-Type: application/json" -d '{"name": "John", "age": 30}' http://localhost:3005/api
+   inside your rest file, you can send requests by clicking on the send requests
+   ![image](https://github.com/joanita-51/HGNx-Internship/assets/82649346/d1bb2492-c3cf-40ae-bde1-5b1c8f4a656c)
+   
+   or if you would like to use Postman, you can use the following endpoints
+   
+  #### Create a new data entry
+   http://localhost:3005/api
+    
+   {
+      "name": "John",
+      "age": 30
+   }
 
-### Retrieve All Data Entries
+#### Retrieve All Data Entries
 
-curl http://localhost:3005/api/getAll
+   http://localhost:3005/api/getAll
 
-### Retrieve Data by ID
+#### Retrieve Data by ID
 Replace <data-id> with the actual ID of the data entry:
-http://localhost:3005/api/<data-id>
+   http://localhost:3005/api/user_id
 
-### Update Data by ID
+#### Update Data by ID
 Replace <data-id> with the actual ID of the data entry and provide the updated data:
+http://localhost:3005/api/user_id
 
-"Content-Type: application/json" -d '{"name": "Updated Name", "age": 35}' http://localhost:3005/api/<data-id>
+{
+   "name": "Updated Name", 
+   "age": 35
+}
 
-### Delete Data by ID
+
+#### Delete Data by ID
 Replace <data-id> with the actual ID of the data entry:
 
-DELETE http://localhost:3005/api/<data-id>
+DELETE http://localhost:3005/api/user_id
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
@@ -85,8 +108,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Push your branch to your forked repository.
 - Open a pull request to the original repository.
 
-## License
-
-
-
-Customize this `README.md` template with the specific details of your project, includi
