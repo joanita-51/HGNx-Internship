@@ -29,6 +29,7 @@ Before you begin, ensure you have met the following requirements:
    git clone <repository-url>
 
     cd <project-directory>
+   
 2. Install project dependencies:
 
    ```bash
@@ -93,7 +94,7 @@ Replace <user_id> with the actual ID of the data entry and provide the updated d
 
 
 #### Delete Data by ID
-Using the method DELETE, type in the endpoint: http://localhost:3005/api/user_id
+Using the method DELETE, type in the endpoint: https://server-fohg.onrender.com/api/user_id
 Replace <user_id> with the actual ID of the data entry:
 
 
@@ -106,7 +107,17 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Push your branch to your forked repository.
 - Open a pull request to the original repository.
 
-## UML
-![uml_1](https://github.com/joanita-51/HGNx-Internship/assets/82649346/5ee8afdc-ff15-4bef-831f-38d458877c91)
-In the above UML, my backend is running on the javascript programming language NODE.JS, The client initiates an HTTP request whose route is in the routes folder file named router.js  and the model for this route  has been specified in the file called model.js in the folder called models. All this is running inside the express application, the files inside both of these folders interact with the Mongoose as the connector for the MongoDB database. Upon connection, the corresponding HTTP response is sent to the client.
+## UML Overview
+
+![UML Diagram](https://github.com/joanita-51/HGNx-Internship/assets/82649346/5ee8afdc-ff15-4bef-831f-38d458877c91)
+
+This UML diagram illustrates the architecture of the system:
+
+- Backend: Developed using Node.js, running within an Express application.
+- Routes: Defined in the `router.js` file in the `routes` folder.
+- Models: Defined in the `model.js` file in the `models` folder.
+- Database: MongoDB, accessed through the Mongoose connector.
+
+The client initiates HTTP requests, which are routed through the defined routes, interacting with the MongoDB database via Mongoose. The Express application handles these requests and sends corresponding HTTP responses to the client.
+
 
