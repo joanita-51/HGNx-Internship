@@ -11,7 +11,7 @@ This README provides instructions for setting up, running, and using the API cre
 - [API Endpoints](#api-endpoints)
 - [Usage Examples](#usage-examples)
 - [Contributing](#contributing)
-- [License](#license)
+- [UML](#uml)
 
 ## Prerequisites
 
@@ -68,25 +68,23 @@ The API will be available at http://localhost:3005 by default. You can modify th
    
    or if you would like to use Postman, you can use the following endpoints
    
-  #### Create a new data entry
-   http://localhost:3005/api
+  #### Add a new person
+  using a method of POST, type in the endpoint: https://server-fohg.onrender.com/api
     
    {
       "name": "John",
       "age": 30
    }
 
-#### Retrieve All Data Entries
 
-   http://localhost:3005/api/getAll
-
-#### Retrieve Data by ID
-Replace <data-id> with the actual ID of the data entry:
-   http://localhost:3005/api/user_id
-
-#### Update Data by ID
-Replace <data-id> with the actual ID of the data entry and provide the updated data:
-http://localhost:3005/api/user_id
+#### Fetch details of a person
+Using the method GET, type in the endpoint: https://server-fohg.onrender.com/api/user_id
+ 
+Replace <user_id> with the actual ID of the data entry:
+    
+#### Modify the details of an existing person.
+Using the method PATCH,  type in the endpoint: https://server-fohg.onrender.com/api/user_id
+Replace <user_id> with the actual ID of the data entry and provide the updated data:
 
 {
    "name": "Updated Name", 
@@ -95,9 +93,9 @@ http://localhost:3005/api/user_id
 
 
 #### Delete Data by ID
-Replace <data-id> with the actual ID of the data entry:
+Using the method DELETE, type in the endpoint: http://localhost:3005/api/user_id
+Replace <user_id> with the actual ID of the data entry:
 
-DELETE http://localhost:3005/api/user_id
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
@@ -107,4 +105,8 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Make your changes and commit them with clear commit messages.
 - Push your branch to your forked repository.
 - Open a pull request to the original repository.
+
+## UML
+![uml_1](https://github.com/joanita-51/HGNx-Internship/assets/82649346/5ee8afdc-ff15-4bef-831f-38d458877c91)
+In the above UML, my backend is running on the javascript programming language NODE.JS, The client initiates an HTTP request whose route is in the routes folder file named router.js  and the model for this route  has been specified in the file called model.js in the folder called models. All this is running inside the express application, the files inside both of these folders interact with the Mongoose as the connector for the MongoDB database. Upon connection, the corresponding HTTP response is sent to the client.
 
